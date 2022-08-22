@@ -134,10 +134,13 @@
             alert("Welcome!", "Logged successfully!", "success");
             for(let i = 0; i < users.length; i++){
               if(users[i].userType == "user"){
-                window.location.assign("http://127.0.0.1:5501/corona-free-dark-bootstrap-admin-template-1.0.0/template/index.html")
+                window.location.assign("index.html")
+              }
+             else if(users[i].userType == "admin"){
+                window.location.assign("dashboard.html")
               }
               else{
-                window.location.assign("http://127.0.0.1:5501/corona-free-dark-bootstrap-admin-template-1.0.0/corso-1.0.0/index.html") 
+                window.location.assign("dashboard.htm") 
                 localStorage.setItem('authUser',JSON.stringify(authUser))
               }
             }
