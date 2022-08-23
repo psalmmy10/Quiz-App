@@ -102,11 +102,7 @@
 
 
 
-
-
-      function store(){
-        
-        if(localStorage.getItem("users") == null){
+       if(localStorage.getItem("users") == null){
           localStorage.setItem("users",JSON.stringify([{
             uname:"admin",
             mail:"admin@gmail.com",
@@ -126,6 +122,10 @@
             localStorage.setItem("users",JSON.stringify(userRecord))
           }
         }
+
+      function store(){
+        
+        
 
         // let userRecords = Array();
         userRecord = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
