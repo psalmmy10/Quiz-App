@@ -57,7 +57,7 @@
                                     <!-- <a id="output2" class="text-success pt-0 "></a> -->
                             </div>
                             <!-- </div> -->
-                            <button type="button" class="btn btn-success mb-2 col-md-12" onclick="store()">Submit</button>
+                            <button type="button" class="btn btn-success mb-2 col-md-12" onclick="submitRecord()">Submit</button>
                         </form>
                     </div>    
                 </div>
@@ -67,9 +67,9 @@
 
     
         <script>
-        var uname = document.getElementById("uname");
-        var mail = document.getElementById("mail");
-        var pword = document.getElementById("pword");
+        var uname = document.getElementById("uname").value;
+        var mail = document.getElementById("mail").value;
+        var pword = document.getElementById("pword").value;
 
 
         if(localStorage.getItem("users") == null){
@@ -104,37 +104,38 @@
 
       
 
-      function store(){
+      function submitRecord(){
         
         
 
         // let userRecords = Array();
         userRecord = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+          console.log(userRecord)
 
-        if ((uname.value == "" || mail.value == "") || (pword.value == "")){
+        if ((uname == "" || mail == "") || (pword == "")){
             swal("Fields can't be empty")
         }
         else{
           if(userRecord.some((v)=>{return v.uname == uname})){
-              return outputMessage.innerHTML ="Username already existed!!"
+               outputMessage.innerHTML = "Username already existed!!"
           }
           else if (userRecord.some((v)=>{return v.mail == mail})){
-              return output.innerHTML ="Email already existed!!"
+              output.innerHTML = "Email already existed!!"
           }
           else{ 
             userRecord.push({
               "id": Math.floor(Math.random() * 1000000),
-              "uname": uname.value,
-              "mail": mail.value,
-              "pword": pword.value,
+              "uname": uname,
+              "mail": mail,
+              "pword": pword,
               userType:"user"
             })
 
 
             var regex =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            var email = regex.test(mail.value);
+            var email = regex.test(mail);
             var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{9,15}$/;
-            var pw = passw.test(pword.value)
+            var pw = passw.test(pword)
 
             if(!pw){ 
                 output1.innerHTML = "Too Weak"
