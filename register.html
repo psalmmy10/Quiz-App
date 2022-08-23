@@ -102,26 +102,7 @@
 
 
 
-       if(localStorage.getItem("users") == null){
-          localStorage.setItem("users",JSON.stringify([{
-            uname:"admin",
-            mail:"admin@gmail.com",
-            pword:"Ade+123456789",
-            userType:"admin"
-          }]));
-        }
-        else{
-          userRecord = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
-          if(userRecord.some(el => el.mail == "admin@gmail.com" || el.uname.toLowerCase() == "admin") == false){
-            userRecord.push({
-              uname:"admin",
-              mail:"admin@gmail.com",
-              pword:"Ade+123456789",
-              userType:"admin"
-            });
-            localStorage.setItem("users",JSON.stringify(userRecord))
-          }
-        }
+      
 
       function store(){
         
