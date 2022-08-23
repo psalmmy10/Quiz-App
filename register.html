@@ -67,9 +67,9 @@
 
     
         <script>
-        var uname = document.getElementById("uname").value;
-        var mail = document.getElementById("mail").value;
-        var pword = document.getElementById("pword").value;
+        var uname = document.getElementById("uname");
+        var mail = document.getElementById("mail");
+        var pword = document.getElementById("pword");
 
 
         if(localStorage.getItem("users") == null){
@@ -130,7 +130,7 @@
         // let userRecords = Array();
         userRecord = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
 
-        if ((uname == "" || mail == "") || (pword == "")){
+        if ((uname.value == "" || mail.value == "") || (pword.value == "")){
             swal("Fields can't be empty")
         }
         else{
@@ -143,17 +143,17 @@
           else{ 
             userRecord.push({
               "id": Math.floor(Math.random() * 1000000),
-              "uname": uname,
-              "mail": mail,
-              "pword": pword,
+              "uname": uname.value,
+              "mail": mail.value,
+              "pword": pword.value,
               userType:"user"
             })
 
 
             var regex =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            var email = regex.test(mail);
+            var email = regex.test(mail.value);
             var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{9,15}$/;
-            var pw = passw.test(pword)
+            var pw = passw.test(pword.value)
 
             if(!pw){ 
                 output1.innerHTML = "Too Weak"
