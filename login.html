@@ -134,13 +134,13 @@
             alert("Welcome!", "Logged successfully!", "success");
             for(let i = 0; i < users.length; i++){
               if(users[i].userType == "user"){
-                window.location.assign("index.html")
+                window.location.assign("./index.html")
               }
              else if(users[i].userType == "admin"){
-                window.location.assign("dashboard.html")
+                window.location.assign("./dashboard.html")
               }
               else{
-                window.location.assign("dashboard.htm") 
+                window.location.assign("./dashboard.html") 
                 localStorage.setItem('authUser',JSON.stringify(authUser))
               }
             }
