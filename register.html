@@ -129,11 +129,11 @@
             swal("Fields can't be empty")
         }
         else{
-          if(userRecord.some((v)=> v.uname == uname)){
-               outputMessage.innerHTML = "Username already existed!!"
+          if(userRecord.some((v)=> {return v.uname == uname})){
+              return outputMessage.innerHTML = "Username already existed!!"
           }
-          else if (userRecord.some((v)=> v.mail == mail)){
-              output.innerHTML = "Email already existed!!"
+          else if (userRecord.some((v)=> {return v.mail == mail})){
+              return output.innerHTML = "Email already existed!!"
           }
           else{ 
             userRecord.push({
