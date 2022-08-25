@@ -50,8 +50,8 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="https://educheck.herokuapp.com/dashboard.index.html"><img src="logo.svg" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="https://educheck.herokuapp.com/dashboardindex.html"><img src="logo-mini.svg" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo" href="https://educheck.herokuapp.com/dashboard.html"><img src="logo.svg" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="https://educheck.herokuapp.com/dashboard.html"><img src="logo-mini.svg" alt="logo" /></a>
         </div>
         <ul class="nav">
           <li class="nav-item profile">
@@ -627,7 +627,7 @@
         if(auth){
           welcome.innerHTML = auth.uname
         }else{
-            window.location.assign("http://127.0.0.1:5502/template/pages/samples/register.html")
+            window.location.assign("register.html")
         }
 
     </script>
